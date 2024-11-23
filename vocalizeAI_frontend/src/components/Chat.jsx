@@ -8,6 +8,11 @@ import SpeechControlsSidebar from './SpeechControlsSidebar';
 import { useSpeechSynthesis } from '../hooks/useSpeechSynthesis';
 import { useAudioRecorder } from '../hooks/useAudioRecorder';
 
+
+/**
+ * Chat component that handles the main chat interface, including message display,
+ * audio recording, speech synthesis, and suggestions.
+ */
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [suggestions, setSuggestions] = useState([]);

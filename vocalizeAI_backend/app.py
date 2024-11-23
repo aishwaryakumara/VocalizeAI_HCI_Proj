@@ -4,11 +4,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 from dotenv import load_dotenv
 
+# Load environment variables from .env file
 load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
+# Get the API key from user- PLEASE REPLACE WITH YOUR API KEY
 # api_key = os.getenv("OPENAI_API_KEY")
 client = OpenAI(api_key="YOUR_API_KEY")
 
@@ -17,17 +19,19 @@ if not api_key:
 
 client = OpenAI(api_key=api_key)
 
+# Function to generate GPT suggestions based on the transcription
 def generate_gpt_suggestions(transcription):
     try:
+        # Generate GPT-3.5 suggestions based on the transcription
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[{
-                "role": "user",
-                "content": f'Generate 3-4 thoughtful follow-up responses for: "{transcription}"'
+            "role": "user",
+            "content": f'Generate 3-4 thoughtful follow-up responses for: "{transcription}"'
             },
             {
-                "role": "assistant",
-                "content": 'Give Suggestions in double quotes'
+            "role": "assistant",
+            "content": 'Give Suggestions in double quotes'
             }]
         )
         suggestions = response.choices[0].message.content.strip().split("\n")
@@ -36,6 +40,7 @@ def generate_gpt_suggestions(transcription):
         print(f"Error generating suggestions: {str(e)}")
         return ["Sorry, I couldn't generate suggestions."]
 
+# Route to transcribe the audio file
 @app.route("/transcribe", methods=["POST"])
 def transcribe_audio():
     if "file" not in request.files:
