@@ -1,14 +1,14 @@
 # Voice Chat Application with Speech Synthesis
 
 ## Overview
-This project is an AI-powered communication tool designed to empower individuals who have hearing and speaking disablities by enhancing accessibility. The application bridges communication gaps through various features such as Speech-to-Text (STT), Text-to-Speech (TTS), Emotion Integration, and Customizable Speech Output.
+This project is an application designed to help individuals who have hearing and speaking disablities. The application bridges communication gaps through features like Speech-to-Text (STT), Text-to-Speech (TTS), Emotion Integration, and Customizable Speech Output.
 
 ## Features: 
 The application improves the quality of life and independence for individuals with  communication disablities by automating and enhancing communication tasks through AI features.
 
 - Speech-to-Text (STT): Using Whisper AI for real-time transcription of spoken language into text. 
-- Text-to-Speech (TTS): Using SpeechSynthesis to convert typed or written text into audible speech. Also supports 7 different languages, ( I plan on integrating Google API in future for better voice quality and support for languages) 
-- Emotion Integration: Enables users to add emotional context to their messages with emotions tags (e.g., happy, calm, serious).
+- Text-to-Speech (TTS): Using SpeechSynthesis to convert typed or generated text into audible speech. Also supports 7 different languages, ( I plan on integrating Google API in future for better voice quality and support for languages) 
+- Emotion Integration: Enables users to add emotional context to the voice responses with emotions tags (e.g., happy, calm, serious).
 - Customizable Speech Output: Offers adjustable pitch, tone, and speed settings for individuals with cognitive disabilities.
 - Suggestions using GenAI: Provides context-aware suggestions for quick and effective responses.
 
@@ -67,17 +67,26 @@ Note: Run the backend server before running the frontend server. Ensure you are 
 
 ### Frontend Setup
 1. Clone the repository
-2. Install dependencies:
+2. Navigate to vocalizeAI_frontend directory
+3. Install TailWind
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   ```
+4. Initialize the tailwind.config.js file:
+  ```bash
+   npx tailwindcss init
+   ```
+5. Install dependencies:
    ```bash
    npm install
    ```
-3. Create a `.env` file with required API keys:
+6. Create a `.env` file with required API keys:
    ```
    OPENAI_API_KEY=your_api_key_here
    ```
-    I have provided my API key directly in this project for grading purposes
+    I have provided my API key in the comment for grading purposes. 
 
-4. Start the client side:
+7. Start the client side:
    ```bash
    npm run dev
    ```
