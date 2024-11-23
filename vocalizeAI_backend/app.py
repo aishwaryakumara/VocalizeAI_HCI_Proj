@@ -9,7 +9,9 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-api_key = os.getenv("OPENAI_API_KEY")
+# api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key="YOUR_API_KEY")
+
 if not api_key:
     raise ValueError("No OPENAI_API_KEY found in environment variables")
 
