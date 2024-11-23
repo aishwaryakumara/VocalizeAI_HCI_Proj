@@ -2,11 +2,18 @@ import os
 from openai import OpenAI
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-client = OpenAI(api_key="REMOVED_OPENAI_KEYFJSYBkIccTr_yQlayptJwL9kaQRnNX6CeuOU9jKP_UAA")
+api_key = os.getenv("OPENAI_API_KEY")
+if not api_key:
+    raise ValueError("No OPENAI_API_KEY found in environment variables")
+
+client = OpenAI(api_key=api_key)
 
 def generate_gpt_suggestions(transcription):
     try:
