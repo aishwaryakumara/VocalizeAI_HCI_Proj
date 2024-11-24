@@ -27,6 +27,8 @@ The application improves the quality of life and independence for individuals wi
 ```
 src/
 ├── components/
+│   ├── Homepage.jsx      # Homepage interface
+│   ├── Instructions.jsx  # Instructions page
 │   ├── Chat.jsx          # Main chat interface
 │   ├── Controls.jsx      # Recording and input controls
 │   ├── Header.jsx        # Application header
@@ -38,6 +40,9 @@ src/
 │   ├── useAudioRecorder.js # Audio recording custom hook
 │   └── useSpeechSynthesis.js # Speech synthesis custom hook
 └── App.jsx              # Root component
+
+
+public/                  # Contains images used in project
 ```
 
 ### Backend
@@ -140,7 +145,7 @@ Manages audio recording functionality:
 ### useSpeechSynthesis
 Handles text-to-speech functionality:
 - Voice selection
-- Speech parameter adjustments
+- Pitch and rate parameter adjustments
 - Emotion-based modulation
 - Speaking status management
 
