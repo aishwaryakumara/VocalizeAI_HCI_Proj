@@ -10,14 +10,14 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)
 
-# Get the API key from user- PLEASE REPLACE WITH YOUR API KEY
-# api_key = os.getenv("OPENAI_API_KEY")
-client = OpenAI(api_key="YOUR_API_KEY")
+# PLEASE REPLACE WITH YOUR API KEY
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key='YOUR_API_KEY')
 
 if not api_key:
     raise ValueError("No OPENAI_API_KEY found in environment variables")
 
-client = OpenAI(api_key=api_key)
+# client = OpenAI(api_key=api_key)
 
 # Function to generate GPT suggestions based on the transcription
 def generate_gpt_suggestions(transcription):
