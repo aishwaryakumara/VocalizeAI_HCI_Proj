@@ -17,8 +17,6 @@ client = OpenAI(api_key='YOUR_API_KEY')
 if not api_key:
     raise ValueError("No OPENAI_API_KEY found in environment variables")
 
-# client = OpenAI(api_key=api_key)
-
 # Function to generate GPT suggestions based on the transcription
 def generate_gpt_suggestions(transcription):
     try:
